@@ -1,0 +1,87 @@
+//////////////////////////////////////////////////////
+///        UWC3 . Frontend. Sergey Goliney         ///
+//////////////////////////////////////////////////////
+
+
+//
+// Адаптивный дизайн
+// --------------------------------------------------
+@media screen and (max-width: 380px) {
+    a#widget-toggler {
+        .text {
+        }
+    }
+    #widget {
+        width: 100%;
+        top: 0;
+        .border-radius(0px);
+
+        //Внутренняя оболочка виджета
+        .inner-wrap {
+            margin: 15px 5px 20px;
+            padding: 10px;
+            width: auto;
+            background-color: white;
+            .border-radius(7px);
+            .box-shadow(0px 1px 2px rgba(0,0,0,.5))
+        }
+
+        //Содержимое виджета
+        #widget-content {
+            position: relative;
+            margin-bottom: 10px;
+            padding: 0 10px;
+            height: @widgetHeight - 40;
+            width: auto;
+            overflow: scroll;
+            border: 0;
+
+            //Контейнер сообщений
+            .messages {
+                width: auto;
+            }
+        }
+
+        .controls {
+
+            textarea {
+                float: none;
+                display: block;
+                margin: 0 auto 10px;
+                width: 90%;
+            }
+        }
+
+        &.farewell {
+            .controls {
+                padding: 10px;
+                height: 100px;
+                form {
+                    margin-top: 10px;
+                }
+
+                input[type=text] {
+                    float: none;
+                    display: block;
+                    width: 90%;
+                }
+
+                button.submit {
+                    float: none;
+                    margin-top: 10px;
+                }
+            }
+        }
+
+        .btn.close {
+            span {
+                display: none;
+            }
+        }
+
+        //Стрелочка
+        .widget-arrow {
+            display: none;
+        }
+    }
+}

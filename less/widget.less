@@ -1,0 +1,436 @@
+//////////////////////////////////////////////////////
+///        UWC3 . Frontend. Sergey Goliney         ///
+//////////////////////////////////////////////////////
+
+
+//
+// Базовые стили
+// --------------------------------------------------
+html, body {
+    font-family: Arial, sans-serif;
+    font-size: @baseFontSize;
+}
+
+a {
+    color: @linkColor;
+    &:link {
+        color: @linkColor;
+    }
+    &:visited {
+        color: @linkVisitedColor;
+    }
+    &:hover {
+        color: @linkHoverColor;
+    }
+}
+
+.hide {
+    display: none;
+}
+
+.invisible {
+    visibility: hidden;
+}
+
+.transparent {
+    opacity: 0;
+    filter:alpha(opacity=0);
+}
+
+
+//
+// Скороллбар
+// --------------------------------------------------
+.scrollbar {
+    width: 3px;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    opacity: 0;
+    background: @scrollbarColor;
+    visibility: hidden;
+}
+
+.scrollbar .knob {
+    background: @scrollbarKnobColor;
+    margin: 0 auto;
+    width: 3px;
+    height: 50px;
+    cursor: pointer;
+}
+
+
+//
+// Виджет
+// --------------------------------------------------
+
+// Переключатель виджета
+a#widget-toggler {
+    position: absolute;
+    left: 0;
+    top: 75px;
+    padding-top: 20px;
+    .border-radius( 0 10px 10px 0);
+    height: @widgetTogglerHeight;
+    width: @widgetTogglerWidth;
+    text-decoration: none;
+    .transition(~'left 500ms linear, width 100ms linear');
+    background-color: @baseColor;
+    #gradient .horizontal(@baseColor, @baseColorDark);
+
+    &:hover {
+        width: @widgetTogglerWidth + 10;
+    }
+
+    .icon-comment {
+        position: absolute;
+        top: 15px;
+        right: 13px;
+    }
+
+    .text {
+        position: absolute;
+        display: block;
+        top: -13px;
+        right: 2px;
+        width: @widgetTogglerHeight - 10;
+        line-height: @widgetTogglerWidth;
+        text-align: center;
+        white-space: nowrap;
+        color: @titleColor;
+        .rotate(270deg);
+        .transform-origin(100% 100%);
+    }
+}
+
+// Виджет
+#widget {
+    //Оболочка виджета
+    position: absolute;
+    top: 75px;
+    left: 276px;
+    background-color: @baseColor;
+    .border-radius(10px);
+
+    background: #a9d30f;
+    background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2E5ZDMwZiIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwJSIgc3RvcC1jb2xvcj0iIzNmOTIwMCIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9Ijg2JSIgc3RvcC1jb2xvcj0iIzNmOTIwMCIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiM2OGFiMDMiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
+    background: -moz-linear-gradient(top, #a9d30f 0%, #3f9200 40px, #3f9200 86%, #68ab03 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#a9d30f), color-stop(40px,#3f9200), color-stop(86%,#3f9200), color-stop(100%,#68ab03));
+    background: -webkit-linear-gradient(top, #a9d30f 0%,#3f9200 40px,#3f9200 86%,#68ab03 100%);
+    background: -o-linear-gradient(top, #a9d30f 0%,#3f9200 40px,#3f9200 86%,#68ab03 100%);
+    background: -ms-linear-gradient(top, #a9d30f 0%,#3f9200 40px,#3f9200 86%,#68ab03 100%);
+    background: linear-gradient(to bottom, #a9d30f 0%,#3f9200 40px,#3f9200 86%,#68ab03 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a9d30f', endColorstr='#68ab03',GradientType=0 );
+
+    //Отображаем элементы виджета в зависимости от статуса (chatting|farewell)
+    &.chatting {
+        .farewell {
+            .hide();
+        }
+    }
+    &.farewell {
+        .chatting {
+            .hide();
+        }
+    }
+
+    //Внутренняя оболочка виджета
+    .inner-wrap {
+        margin: 15px 5px 20px;
+        padding: 10px;
+        width: @widgetWidth;
+        background-color: white;
+        .border-radius(7px);
+        .box-shadow(0px 1px 2px rgba(0,0,0,.5))
+    }
+
+    //Содержимое виджета
+    #widget-content {
+        position: relative;
+        margin-bottom: 10px;
+        padding: 0 10px;
+        height: @widgetHeight - 40;
+        width: @widgetWidth - 20;
+        overflow: hidden;
+        border: 0;
+
+        //Контейнер сообщений
+        .messages {
+            width: @widgetWidth - 20;
+
+            .message {
+                padding: 9px 0 14px 0;
+
+                .title {
+                    font-size: @baseFontSize - 2;
+                }
+                &.incoming .title {
+                    color: #3f9200;
+                }
+                &.outcoming .title {
+                    color: #666;
+                }
+
+                .text {
+                    line-height: 20px;
+                }
+
+                .attachment {
+                    margin-top: 5px;
+
+                    a {
+                        font-size: @baseFontSize - 1;
+                    }
+                }
+            }
+        }
+    }
+
+    textarea,
+    input[type=text] {
+        float: left;
+        padding: 7px 10px;
+        background-color: transparent;
+        border-style: solid;
+        border-width: 1px;
+        border-color: #abaeb5 #e4e4ec #e4e4ec #e4e4ec;
+        resize: none;
+        outline: none;
+    }
+
+    input[type=text] {
+        width: @widgetWidth - 160;
+        .placeholder-style(italic);
+    }
+
+    textarea {
+        margin-bottom: 10px;
+        width: @widgetWidth - 22;
+        height: 52px;
+    }
+
+    .controls {
+        position: relative;
+
+        //блок вложения файла
+        .file-attach {
+            position: absolute;
+            left: 0;
+            bottom: 5px;
+            white-space: nowrap;
+            font-size: @baseFontSize - 1;
+
+            //кнопка "вкласти файл"
+            a {
+                display: inline-block;
+                margin-bottom: 3px;
+                text-decoration: none;
+                border-bottom: 1px dotted;
+            }
+
+            //Контейнер названия вложенного файла
+            .file {
+                display: inline-block;
+                margin-left: 7px;
+                padding: 3px 5px;
+                background-color: #e3eaf0;
+                cursor: pointer;
+                &:hover {
+                    background-color: #F6E3E0;
+                    .icon-remove {
+                        .icon-remove-hover();
+                    }
+                }
+                &.hide {
+                    display: none;
+                }
+            }
+
+            .upload-file-wrap {
+                position: absolute;
+                .transparent();
+                width: 1px;
+                z-index: -1;
+            }
+        }
+    }
+
+    &.chatting {
+        .controls {
+            height: 112px;
+        }
+    }
+
+    &.farewell {
+        .controls {
+            padding: 10px;
+            height: 60px;
+            form {
+                margin-top: 10px;
+            }
+        }
+    }
+
+    button.submit {
+        float: right;
+        padding: 7px 22px;
+        box-shadow: inset 1px 1px 0 rgba(255,255,255,.8), inset -1px -1px 0 rgba(255,255,255,.8);
+        border: 1px solid #707171;
+        *border: 0; // Remove the border to prevent IE7's black border on input:focus
+
+        .border-radius(3px);
+        background: #f2f6f8;
+        background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2YyZjZmOCIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjUwJSIgc3RvcC1jb2xvcj0iI2ViZWJlYiIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjUxJSIgc3RvcC1jb2xvcj0iI2RlZGVkZSIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNkMGQwZDAiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
+        background: -moz-linear-gradient(top, #f2f6f8 0%, #ebebeb 50%, #dedede 51%, #d0d0d0 100%);
+        background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#f2f6f8), color-stop(50%,#ebebeb), color-stop(51%,#dedede), color-stop(100%,#d0d0d0));
+        background: -webkit-linear-gradient(top, #f2f6f8 0%,#ebebeb 50%,#dedede 51%,#d0d0d0 100%);
+        background: -o-linear-gradient(top, #f2f6f8 0%,#ebebeb 50%,#dedede 51%,#d0d0d0 100%);
+        background: -ms-linear-gradient(top, #f2f6f8 0%,#ebebeb 50%,#dedede 51%,#d0d0d0 100%);
+        background: linear-gradient(to bottom, #f2f6f8 0%,#ebebeb 50%,#dedede 51%,#d0d0d0 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f2f6f8', endColorstr='#d0d0d0',GradientType=0 );
+
+        &:hover {
+            #gradient .vertical(#d0d0d0, #f2f6f8);
+        }
+        &:active {
+            margin-top: 1px;
+        }
+        &[disabled]{
+            border-color: #abaeb5;
+            &:active {
+                margin-top: 0px;
+            }
+        }
+    }
+
+    //Стрелочка
+    .widget-arrow {
+        position: absolute;
+        bottom: -20px;
+        right: 25px;
+        width: 0px;
+        height: 0px;
+        border-style: solid;
+        border-width: 0 15px 20px 0;
+        border-color: transparent #68ab03 transparent transparent;
+        line-height: 0px;
+        .skew(25deg, 0deg);
+        _border-color: #000000 #68ab03 #000000 #000000;
+        _filter: progid:DXImageTransform.Microsoft.Chroma(color='#000000');
+    }
+
+    //Заголовок
+    h1 {
+    //        float: left;
+        margin: 10px;
+        color: white;
+        font-size: @baseFontSize;
+        font-style: italic;
+        font-weight: 700;
+        cursor: move;
+    }
+
+
+    button.close {
+        position: absolute;
+        top: 6px;
+        right: 6px;
+    }
+
+}
+
+//
+// Buttons
+// --------------------------------------------------
+
+.btn {
+    width: auto;
+    display: inline-block;
+    .ie7-inline-block();
+    padding: 4px 9px;
+    margin-bottom: 0; // For input.btn
+    font-size: 12px;
+    line-height: 18px;
+    *line-height: 18px;
+    text-align: center;
+    vertical-align: middle;
+    cursor: pointer;
+    border: 1px solid #333;
+    *border: 0; // Remove the border to prevent IE7's black border on input:focus
+    border-bottom-color: darken(#387f01, 10%);
+    .border-radius(4px);
+    .ie7-restore-left-whitespace(); // Give IE7 some love
+
+}
+
+.btn.close {
+    border: 1px solid #3f9200;
+    #gradient .vertical(#b6d912, #4A9902);
+    color: white;
+    .box-shadow(inset 0px 1px 0 rgba(241,255,69,0.81), inset 1px 0px 0 rgba(255,255,255,.4), inset -1px -1px 0 rgba(255,255,255,.4));
+
+    &:hover {
+        #gradient .vertical(#b7de11, #5fb501);
+    }
+    &:active {
+        margin-top: 1px;
+    }
+}
+
+// Cross-browser Jank
+// --------------------------------------------------
+
+button.btn,
+input[type="submit"].btn {
+
+// Firefox 3.6 only I believe
+    &::-moz-focus-inner {
+        padding: 0;
+        border: 0;
+    }
+
+// IE7 has some default padding on button controls
+    *padding-top: 3px;
+    *padding-bottom: 3px;
+}
+
+
+
+//
+// Иконки
+// --------------------------------------------------
+[class^="icon-"] {
+    display: inline-block;
+    margin-top: 1px;
+    width: 14px;
+    height: 14px;
+    .ie7-restore-right-whitespace();
+    line-height: 14px;
+    vertical-align: text-top;
+    background-image: url('../img/sprites.png');
+    background-repeat: no-repeat;
+}
+
+.icon-comment {
+    background-position: 0 0;
+}
+
+.icon-close {
+    background-position: 2px -17px;
+}
+
+.icon-attachment {
+    margin-right: 3px;
+    width: 16px;
+    height: 15px;
+    background-position: -22px 0;
+}
+
+.icon-remove {
+    width: 8px;
+    background-position: -17px -17px;
+}
+.icon-remove-hover {
+    width: 8px;
+    background-position: -31px -18px;
+}

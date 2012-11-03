@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+
+<!--
+//////////////////////////////////////////////////////
+///        UWC3 . Frontend. Sergey Goliney         ///
+//////////////////////////////////////////////////////
+-->
+
+<html lang="uk">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UWC3. Номінація: "Frontend (до 1 року досвіду) | Sergey Goliney</title>
+
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/animate-custom.css">
+    <link rel="stylesheet" href="css/uwc.css">
+    <!--[if lte IE 8]>
+        <link rel="stylesheet" href="css/widget_ie6_8.css">
+    <![endif]-->
+
+    <script src="js/mootools-core.js" type="text/javascript"></script>
+    <script src="js/mootools-more.js" type="text/javascript"></script>
+    <script src="js/functions.js" type="text/javascript"></script>
+    <script src="js/Scrollable.js" type="text/javascript"></script>
+    <script src="js/Widget.js" type="text/javascript"></script>
+</head>
+<body>
+
+    <a href="#tech-support" id="widget-toggler">
+        <i class="icon-comment"></i>
+        <span class="text">технічна підтримка</span>
+    </a>
+
+    <div id="widget" class="transparent">
+        <h1 id="widget-title">
+            <i class="icon-comment"></i>
+            <span class="chatting">Технічна підтримка слухає...</span>
+            <span class="farewell">Чат завершено!</span>
+        </h1>
+        <button class="btn close">
+            <i class="icon-close"></i>
+            <span class="chatting">завершити чат</span>
+            <span class="farewell">закрити вікно</span>
+        </button>
+        <div class="inner-wrap">
+            <div id="widget-content" class="content chatting">
+                <div class="messages chatting">
+                    <!-- Сюда будут добавляться сообщения -->
+                </div>
+            </div>
+            <div class="controls chatting">
+                <form action="/uwc/frontend/" method="post" enctype="multipart/form-data">
+                    <textarea name="message" cols="4" rows="70"></textarea>
+                    <button type="submit" class="submit">надіслати</button>
+
+                    <div class="file-attach">
+                        <div class="upload-file-wrap">
+                            <input type="file" id="upload-file" />​
+                        </div>
+                        <i class="icon-attachment"></i>
+                        <a class="attach" href="#attach">вкласти файл</a>
+                        <span class="file hide">
+                            <span class="filename"></span> <i class="icon-remove"></i>
+                        </span>
+                    </div>
+                </form>
+            </div>
+
+            <div class="controls farewell">
+                <div>Надіслати копію чату собі на пошту</div>
+                <form action="/uwc/frontend/" method="post">
+                    <input type="text" class="email" tabindex="1" placeholder="Адреса електронної пошти">
+                    <button type="submit" class="submit" tabindex="2" disabled="disabled">надіслати</button>
+                </form>
+            </div>
+        </div>
+        <div class="widget-arrow"></div>
+    </div>
+
+</body>
+</html>

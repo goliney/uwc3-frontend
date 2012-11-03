@@ -1,0 +1,25 @@
+/*/////////////////////////////////////////////////////////*/
+/*//          UWC3 . Frontend. Sergey Goliney            //*/
+/*//    Результат компиляции ../less/widget_ie6_8.less   //*/
+/*/////////////////////////////////////////////////////////*/
+
+a#widget-toggler .text {
+  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+  right: -108px;
+  top: 25px;
+}
+button:active {
+  margin-top: 0 !important;
+}
+* + html a#widget-toggler .text {
+  right: 2px;
+}
+* + html #widget input[type=text] {
+  width: 196px;
+}
+* html a#widget-toggler .text {
+  right: 2px;
+}
+* html #widget input[type=text] {
+  width: 196px;
+}

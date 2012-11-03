@@ -1,0 +1,49 @@
+//////////////////////////////////////////////////////
+///        UWC3 . Frontend. Sergey Goliney         ///
+//////////////////////////////////////////////////////
+
+@import 'variables.less';
+
+//
+// Хаки для IE
+// --------------------------------------------------
+
+// IE 6-8
+a#widget-toggler .text {
+    filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+    right: -108px;
+    top: 25px;
+}
+
+button:active {
+    margin-top: 0 !important; //в IE кнопки при нажатии и так скачут
+}
+
+
+*+html {
+// IE7 only
+    a#widget-toggler {
+        .text {
+            right: 2px;
+        }
+    }
+    #widget {
+        input[type=text] {
+            width: @widgetWidth - 210;
+        }
+    }
+}
+
+* html {
+// IE6 only
+    a#widget-toggler {
+        .text {
+            right: 2px;
+        }
+    }
+    #widget {
+        input[type=text] {
+            width: @widgetWidth - 210;
+        }
+    }
+}
