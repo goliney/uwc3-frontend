@@ -75,8 +75,6 @@ var Widget = new Class({
         $(this.options.toggler).addEvent('click', function (event) {
             event.stop();
             if (this.scroll) {
-//                this.scroll.terminate();
-//                this.scroll.element.removeEvents();
                 this.scroll = null;
             }
             this.showWidget();
@@ -98,15 +96,17 @@ var Widget = new Class({
 
             //нажатие на кнопку закрытия виджета
             'click:relay(button.close)':function (event) {
-                this.hideWidget();
-                this.textarea.value = '';
+                if (!$(this.options.element).hasClass('animated')) {
+                    this.hideWidget();
+                    this.textarea.value = '';
 
-                var wait = window.setTimeout(function () {
-                    this.status = this.status == 'chatting' ? 'farewell' : 'chatting';
-                    if (this.status == 'farewell') {
-                        this.showWidget();
-                    }
-                }.bind(this), 750);
+                    var wait = window.setTimeout(function () {
+                        this.status = this.status == 'chatting' ? 'farewell' : 'chatting';
+                        if (this.status == 'farewell') {
+                            this.showWidget();
+                        }
+                    }.bind(this), 750);
+                }
             }.bind(this),
 
             //нажатие на кнопку "вкласти файл"

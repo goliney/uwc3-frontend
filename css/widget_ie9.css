@@ -1,0 +1,20 @@
+/*/////////////////////////////////////////////////////////*/
+/*//          UWC3 . Frontend. Sergey Goliney            //*/
+/*//     Результат компиляции ../less/widget_ie9.less    //*/
+/*/////////////////////////////////////////////////////////*/
+
+.transparent {
+  filter: none;
+}
+a#widget-toggler {
+  filter: none;
+}
+#widget {
+  filter: none;
+}
+#widget button.submit {
+  filter: none;
+}
+#widget .widget-arrow {
+  filter: none;
+}
