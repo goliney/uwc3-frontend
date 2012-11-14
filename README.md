@@ -13,6 +13,13 @@ uwc3-frontend (до 1 года опыта)
 sergey@goliney.com
 
 
+Задание:
+---------------
+
+Верстка макета:
++ [Макет](https://github.com/goliney/uwc3-frontend/blob/master/widget.png)
++ [Критерии](https://github.com/goliney/uwc3-frontend/blob/master/task_frontend.doc)
+
 Рабочий пример:
 ---------------
 
