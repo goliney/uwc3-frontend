@@ -296,7 +296,7 @@ var Widget = new Class({
          */
         if ($('upload-file').value.length || this.textarea.value.length) {
             var message_object = {
-                sender:'Ви',
+                sender:'You',
                 time:new Date().format('%d.%m.%Y %H:%M:%S'),
                 text:this.textarea.value
             }
@@ -323,7 +323,7 @@ var Widget = new Class({
          */
         var message_text = message_text == null ? support_care.getRandom() : message_text;
         var message_object = {
-            'sender':'Пiдтримка',
+            'sender':'Tech-support',
             'time':new Date().format('%d.%m.%Y %H:%M:%S'),
             'text':message_text
         }
@@ -362,7 +362,7 @@ var Widget = new Class({
          */
         $(this.options.element).getElement('.messages').empty();
         this.clearFileInput();
-        this.receiveMessage('Доброго дня, чим можу допомогти?');
+        this.receiveMessage('Hello, how can I help you?');
     }
 });
 

@@ -2,20 +2,22 @@
 ///        UWC3 . Frontend. Sergey Goliney         ///
 //////////////////////////////////////////////////////
 
-/* Набор вспомогательных утилит */
+/* Utils */
 
 //Список ответов тех поддержки
 var support_care = [
-    'Перезапустіть ваш пристрій.',
-    'Я так і думав',
-    'Ваше питання дуже важливе для нас',
-    'Залишайтесь на зв’язку',
-    '...цікаво, а що сьогодні в їдальні на обід',
-    'Ну все, мій терпець урвався!!! Я звільняюсь!!!',
-    'Ви хочете про це поговорити?',
-    'А до мережі ви його підключили?',
-    'Як я Вас розумію...'
-]
+    "Have you tried turning it off and on again?",
+    "Just as I thought",
+    "So intriguing, go on...",
+    "Stay on line, please...",
+    "...цікаво, а що сьогодні в їдальні на обід",
+    "I can't take it anymore!!! I quit!!!",
+    "Do you want to talk about it?",
+    "Did you plug it in?",
+    "Oh, it's you again",
+    "Fine",
+    "I understand you so deeply..."
+];
 
 //Проверка мобильного устройства
 var isMobile = {
